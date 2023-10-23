@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_horizontal_rv">15dp</dimen>
+    <dimen name="margin_vertical_rv">15dp</dimen>
+    <dimen name="margin_bottom_btn">15dp</dimen>
+    <dimen name="row">80dp</dimen>
+    <dimen name="row_elevation">6dp</dimen>
+    <dimen name="row_corner">10dp</dimen>
+</resources>
