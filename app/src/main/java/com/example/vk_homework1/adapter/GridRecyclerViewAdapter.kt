@@ -1,8 +1,6 @@
 package com.example.vk_homework1.adapter
 
 import android.content.res.Configuration
-import android.content.res.Resources
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,17 +11,13 @@ import com.example.vk_homework1.R
 
 
 class GridRecyclerViewAdapter(): RecyclerView.Adapter<GridRecyclerViewAdapter.MyViewHolder>() {
-    var count: Int = 40
+    var count: Int = 0
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): GridRecyclerViewAdapter.MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
-        val columns = getOrientation(view)
-        val lp = view.layoutParams
-        lp.height = parent.measuredWidth / columns - 30.toPx.toInt()
-        view.layoutParams = lp
         return MyViewHolder(view)
     }
 
@@ -31,13 +25,8 @@ class GridRecyclerViewAdapter(): RecyclerView.Adapter<GridRecyclerViewAdapter.My
         private val textView: TextView = itemView.findViewById(R.id.tv_position)
         fun onBind(position: Int) {
             textView.text = position.toString()
-
             when (position % 2) {
-                0 -> {
-                    //itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.red))
-                    itemView.background = ContextCompat.getDrawable(itemView.context, R.drawable.red_card_view)
-                }
-
+                0 -> itemView.background = ContextCompat.getDrawable(itemView.context, R.drawable.red_card_view)
                 1 -> itemView.background = ContextCompat.getDrawable(itemView.context, R.drawable.blue_card_view)
             }
 
@@ -48,15 +37,7 @@ class GridRecyclerViewAdapter(): RecyclerView.Adapter<GridRecyclerViewAdapter.My
         holder.onBind(position)
     }
 
-    override fun getItemCount(): Int {
-        return count
-    }
-
-    private val Number.toPx
-        get() = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            this.toFloat(),
-            Resources.getSystem().displayMetrics)
+    override fun getItemCount() = count
 
     fun getOrientation(view: View): Int {
         return when (view.context.resources.configuration.orientation) {
