@@ -11,6 +11,7 @@ import com.example.vk_homework1.R
 
 
 class GridRecyclerViewAdapter(): RecyclerView.Adapter<GridRecyclerViewAdapter.MyViewHolder>() {
+
     var count: Int = 0
 
     override fun onCreateViewHolder(
@@ -38,14 +39,4 @@ class GridRecyclerViewAdapter(): RecyclerView.Adapter<GridRecyclerViewAdapter.My
     }
 
     override fun getItemCount() = count
-
-    fun getOrientation(view: View): Int {
-        return when (view.context.resources.configuration.orientation) {
-            Configuration.ORIENTATION_PORTRAIT -> 3
-            Configuration.ORIENTATION_LANDSCAPE -> 4
-            else -> throw UnknownError("Unknown Orientation")
-        }
-    }
-
-
 }

@@ -29,7 +29,7 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter.count = savedInstanceState?.getInt(key) ?: 0
-        val columns = adapter.getOrientation(view)
+        val columns = getOrientation(view)
 
         recyclerView = view.findViewById(R.id.rv)
         recyclerView.layoutManager = GridLayoutManager(context, columns)
@@ -37,14 +37,18 @@ class ListFragment : Fragment() {
 
         addBtn = view.findViewById(R.id.button)
         addBtn.setOnClickListener {
+            adapter.notifyItemInserted(adapter.count)
             adapter.count++
-            adapter.notifyItemInserted(adapter.count - 1)
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(key, adapter.count)
+    }
+
+    private fun getOrientation(view: View): Int {
+        return view.resources.getInteger(R.integer.column_number)
     }
 
 }
