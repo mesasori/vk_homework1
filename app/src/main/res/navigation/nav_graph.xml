@@ -9,7 +9,19 @@
         android:id="@+id/listFragment"
         android:name="com.example.vk_homework1.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list"
-        />
+        tools:layout="@layout/fragment_list">
+        <action android:id="@+id/fromList_to_Info"
+            app:destination="@id/infoFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.vk_homework1.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info">
+        <action android:id="@+id/fromInfo_to_List"
+            app:destination="@id/listFragment"/>
+    </fragment>
 
 </navigation>

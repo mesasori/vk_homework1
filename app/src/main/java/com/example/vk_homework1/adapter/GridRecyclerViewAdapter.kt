@@ -1,11 +1,12 @@
 package com.example.vk_homework1.adapter
 
-import android.content.res.Configuration
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vk_homework1.R
 
@@ -31,6 +32,11 @@ class GridRecyclerViewAdapter(): RecyclerView.Adapter<GridRecyclerViewAdapter.My
                 1 -> itemView.background = ContextCompat.getDrawable(itemView.context, R.drawable.blue_card_view)
             }
 
+            itemView.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putInt("key", position)
+                Navigation.findNavController(itemView).navigate(R.id.fromList_to_Info, bundle)
+            }
         }
     }
 

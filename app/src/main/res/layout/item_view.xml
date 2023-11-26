@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/row"
     android:layout_margin="15dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:elevation="@dimen/row_elevation"
-    app:cardCornerRadius="@dimen/row_corner">
+    android:elevation="@dimen/row_elevation">
     <TextView
         android:id="@+id/tv_position"
         android:layout_width="wrap_content"

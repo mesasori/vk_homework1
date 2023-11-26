@@ -1,11 +1,13 @@
 package com.example.vk_homework1
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vk_homework1.adapter.GridRecyclerViewAdapter
@@ -40,6 +42,7 @@ class ListFragment : Fragment() {
             adapter.notifyItemInserted(adapter.count)
             adapter.count++
         }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
